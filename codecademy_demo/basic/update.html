@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<script src="https://cdn.jsdelivr.net/npm/phaser@3.15.1/dist/phaser-arcade-physics.min.js"></script>
+</head>
+
+<body>
+
+	<script>
+		// 新增update，讓小精靈移動
+
+		let codey;
+
+		function preload() {
+			this.load.image('codey', 'https://s3.amazonaws.com/codecademy-content/courses/learn-phaser/codey.png');
+		}
+
+		function create() {
+			codey = this.add.sprite(30, 200, 'codey')
+		}
+
+		// update有兩個可選參數time和delta
+		// time為在一ms要的頻率
+		// delta為the difference (in milliseconds) since the last time
+		// Phaser內建60 times per second，delta為16.6
+		function update() {
+			codey.x += 1
+		}
+
+		// Create your update() function here
+
+		const config = {
+			type: Phaser.AUTO,
+			width: 400,
+			height: 400,
+			backgroundColor: "#5f2a55",
+			scene: {
+				preload,
+				create,
+				// Include update here!
+				update,
+			}
+		}
+
+		const game = new Phaser.Game(config)
+	</script>
+
+</body>
+
+</html>
