@@ -6,22 +6,17 @@
 </head>
 
 <body>
-
 	<script>
-		// 此頁面的功能為載入一個精靈圖片
-
-		// preload為create之前會做的事，像是載入檔案
 		function preload() {
-			// Load in the sprite here!
+			// Load in the background image here!
 			// 載入網址圖片，並給一個key名稱
-			this.load.image('codey', 'https://s3.amazonaws.com/codecademy-content/courses/learn-phaser/codey.png');
+			this.load.image('sky', 'https://s3.amazonaws.com/codecademy-content/courses/learn-phaser/sky.jpg');
 		}
 
-		// create為設定遊戲物件
 		function create() {
-			// Create a sprite game object here!
+			// Put the background image in the scene here!
 			// 載入key圖片，並給予一個位置設定
-			this.add.sprite(40, 80, 'codey');
+			this.add.image(200, 200, 'sky');
 		}
 
 		const config = {
@@ -36,9 +31,7 @@
 		}
 
 		const game = new Phaser.Game(config)
-
 	</script>
-
 </body>
 
 </html>
