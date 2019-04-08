@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<script src="https://cdn.jsdelivr.net/npm/phaser@3.15.1/dist/phaser-arcade-physics.min.js"></script>
+</head>
+
+<body>
+
+	<script>
+		// 此頁面的功能為畫圈圈
+
+		function create() {
+			// 第一項參數為左右的距離x，第二個參數為上下距離y，第三參數為半徑大小，第四參數為顏色
+			let circle1 = this.add.circle(50, 100, 90, 0xFFF070);
+			let circle2 = this.add.circle(95, 300, 80, 0xFF0000);
+			let circle3 = this.add.circle(200, 200, 100, 0x9F00D0);
+			let circle4 = this.add.circle(300, 400, 10, 0x00E030);
+			let circle5 = this.add.circle(300, 200, 50, 0x557788);
+		}
+
+		const config = {
+			type: Phaser.AUTO,
+			width: 450,
+			height: 600,
+			scene: {
+				create
+			}
+		}
+
+		const game = new Phaser.Game(config)
+
+	</script>
+
+</body>
+
+</html>
