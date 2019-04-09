@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<script src="https://cdn.jsdelivr.net/npm/phaser@3.15.1/dist/phaser-arcade-physics.min.js"></script>
+</head>
+
+<body>
+	<script>
+		/*
+			滑鼠有四種註冊事件
+			pointerdown 滑鼠按下去但沒有釋放的時候
+			pointerup 滑鼠按下去釋放的時候
+			pointerover 滑鼠進入物件時
+			pointerout 滑鼠移出物件時
+		*/
+
+		const gameState = {
+			onColor: 0xaaffaa,
+			offColor: 0xffaaaa
+		}
+
+		function create() {
+			gameState.rect1 = this.add.rectangle(200, 100, 100, 100, gameState.onColor);
+			gameState.rect2 = this.add.rectangle(200, 300, 100, 100, gameState.offColor);
+
+			// 要註冊交互事件時，要先對物件執行 setInteractive
+			gameState.rect1.setInteractive()
+			// 註冊滑鼠點擊的動作，改變顏色
+			gameState.rect1.on('pointerup', function () {
+				gameState.rect1.fillColor = gameState.onColor;
+				gameState.rect2.fillColor = gameState.offColor;
+			})
+
+			gameState.rect2.setInteractive()
+			gameState.rect2.on('pointerup', function () {
+				gameState.rect1.fillColor = gameState.offColor;
+				gameState.rect2.fillColor = gameState.onColor;
+			})
+		}
+
+		const config = {
+			type: Phaser.AUTO,
+			width: 400,
+			height: 450,
+			backgroundColor: 0x333333,
+			scene: {
+				create
+			}
+		}
+
+		const game = new Phaser.Game(config)
+	</script>
+</body>
+
+</html>
