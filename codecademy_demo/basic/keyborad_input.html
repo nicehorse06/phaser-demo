@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<script src="https://cdn.jsdelivr.net/npm/phaser@3.15.1/dist/phaser-arcade-physics.min.js"></script>
+</head>
+
+<body>
+	<script>
+		/*
+			用鍵盤上下左右移動
+			鍵盤的事件是不用註冊的，所有按鍵都可以在keyboard物件中直接使用
+			進階的課題為一直保持同樣的速度的加速度
+		*/
+
+		const gameState = {}
+
+		function preload() {
+			this.load.image('codey', 'https://s3.amazonaws.com/codecademy-content/courses/learn-phaser/codey.png');
+		}
+
+		function create() {
+			gameState.codey = this.add.sprite(150, 200, 'codey')
+			// 鍵盤的上下左右鍵物件
+			gameState.cursors = this.input.keyboard.createCursorKeys()
+		}
+
+		function update() {
+			if (gameState.cursors.right.isDown) {
+				gameState.codey.x += 5;
+			}
+			if (gameState.cursors.left.isDown) {
+				gameState.codey.x -= 5;
+			}
+
+			if (gameState.cursors.up.isDown) {
+				gameState.codey.y -= 5;
+			}
+
+			if (gameState.cursors.down.isDown) {
+				gameState.codey.y += 5;
+			}
+		}
+
+		const config = {
+			type: Phaser.AUTO,
+			width: 400,
+			height: 500,
+			backgroundColor: "#5f2a55",
+			scene: {
+				preload,
+				create,
+				update
+			}
+		}
+
+		const game = new Phaser.Game(config)
+	</script>
+</body>
+
+</html>
