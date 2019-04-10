@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<script src="https://cdn.jsdelivr.net/npm/phaser@3.15.1/dist/phaser-arcade-physics.min.js"></script>
+</head>
+
+<body>
+	<script>
+		// 建立遊戲狀態供不同函數間使用
+		let gameState = {}
+
+		// 預先載入資料、資源
+		function preload() {
+			this.load.image('codey', 'https://s3.amazonaws.com/codecademy-content/courses/learn-phaser/codey.png')
+		}
+
+		// 遊戲初始各種狀態，如sprite物件、鍵盤物件到state中
+		function create() {
+			gameState.codey = this.add.sprite(200, 200, 'codey')
+			gameState.cursors = this.input.keyboard.createCursorKeys()
+		}
+
+		// 遊戲開始後依據state做變化
+		function update() {
+			if (gameState.cursors.down.isDown) {
+				gameState.codey.y += 5
+			}
+			if (gameState.cursors.up.isDown) {
+				gameState.codey.y -= 5
+			}
+			if (gameState.cursors.right.isDown) {
+				gameState.codey.x += 5
+			}
+			if (gameState.cursors.left.isDown) {
+				gameState.codey.x -= 5
+			}
+		}
+		
+		// 遊戲的設定檔，帶入背景設定和載入scene中的遊戲方法
+		let config = {
+			width: 400,
+			height: 400,
+			backgroundColor: 0xdda0dd,
+			scene: {
+				preload, create, update
+			}
+		}
+
+		// 實例化 Phaser物件，帶入config作為參數
+		let game = new Phaser.Game(config)
+	</script>
+</body>
+
+</html>
