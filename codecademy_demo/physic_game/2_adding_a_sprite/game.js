@@ -7,7 +7,8 @@ function preload() {
   }
   
   const gameState = {};
-  
+
+  // demo: https://nicehorse06.github.io/phaser-demo/codecademy_demo/physic_game/2_adding_a_sprite/
   function create() {
 	// 使用 this.physics 增加會受到重力影響
 	this.physics.add.sprite(200, 250, 'codey') 
