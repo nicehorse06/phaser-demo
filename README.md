@@ -13,3 +13,5 @@ codecademy做的教程
 * [Jimmy的Blog Phaser get start](https://nicehorse06.blogspot.com/2018/11/phaser-get-start.html)
 
 * [phaser3-examples](https://github.com/photonstorm/phaser3-examples) 官方資源網
+
+* [關於你關於我關於phaser](https://ithelp.ithome.com.tw/users/20111772/ironman/1902)
